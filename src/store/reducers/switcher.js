@@ -6,7 +6,7 @@ const initialState = {
   isChecked: false,
 }
 
-export default handleActions({
+export const switchState = handleActions({
   [constants.actions.switchState]: (state) => ({
     isChecked: !state.isChecked,
   }),

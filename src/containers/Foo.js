@@ -7,20 +7,16 @@ import Clicker from './../components/Clicker'
 
 import store from 'store'
 const { actions } = store
-
-// console.log(actions = actions)
+import { switchState as actionSwitch } from './../store/actions.js'
 
 class Foo extends Component {
   static propTypes = {
-    // switchState: PropTypes.func.isRequired,
-    dispatch: PropTypes.func.isRequired,
+    switchState: PropTypes.func.isRequired,
   };
 
   handlerClick() {
     const { dispatch, switchState } = this.props
-    // switchState()
-    console.log('foo Handler')
-    dispatch(actions.switchState())
+    switchState()
   }
 
   render() {
@@ -36,15 +32,9 @@ class Foo extends Component {
 }
 
 export default connect(
-  (dispatch) =>({dispatch: dispatch})
-)(Foo)
-  // (dispatch) => bindActionCreators(store.actions, dispatch)
-  // {
-    // return bindActionCreators(actions, dispatch)
-    // var d = bindActionCreators(actions, dispatch)
-
-  // }
-
-export default connect(
-  (dispatch) => bindActionCreators(store.actions, dispatch)
+  undefined,
+  //(dispatch) =>(console.log('dispatch', dispatch), {switchState: () => dispatch(actionSwitch())})
+  //(dispatch) =>({switchState: (...args) => dispatch(actionSwitch(...args))})
+  (dispatch) => bindActionCreators({switchState: actionSwitch}, dispatch)
+  // (state) => (console.log('dispatch', dispatch), {dispatch})
 )(Foo)

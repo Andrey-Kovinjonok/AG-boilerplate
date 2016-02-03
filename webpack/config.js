@@ -10,5 +10,6 @@ export default {
   indexDev: path.join(root, 'src/index_dev.html'),
   index: path.join(root, 'src/index.html'),
   store: path.join(root, 'src/store'),
+  api: path.join(root, 'src/api'),
   port: 3031,
 }

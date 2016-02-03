@@ -1,15 +1,12 @@
-import { createStore, applyMiddleware, compose } from 'redux'
-import middleware from './middleware'
-import reducers from './reducers'
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
+import * as reducers from './reducers'
 
-export default function createAndConfigureStore(/*initialState*/) {
-  /*
-  const finalCreateStore = compose(
-    applyMiddleware(middleware),
-  )(createStore)*/
-
-  // const store = finalCreateStore(reducers/*, initialState*/)
-  const store = createStore(reducers)
+export default function createAndConfigureStore(/* initialState*/) {
+  const store = createStore(
+    combineReducers(reducers),
+    applyMiddleware(thunk)
+  )
 
   /*
   if (module.hot) {

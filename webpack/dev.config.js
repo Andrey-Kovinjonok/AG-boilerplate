@@ -19,7 +19,8 @@ module.exports = {
   },
   module: {
     loaders: [
-      /*{
+      /*
+      {
         test: /\.html$/,
         loader: 'file?name=[name].[ext]',
       },*/
@@ -49,6 +50,7 @@ module.exports = {
     extensions: ['', '.js'],
     alias: {
       store: config.store,
+      api: config.api,
     },
   },
   plugins: [

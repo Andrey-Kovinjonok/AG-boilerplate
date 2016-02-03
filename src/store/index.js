@@ -1,4 +1,4 @@
-import actions from './actions.js'
+import * as actions from './actions.js'
 import constants from './constants.js'
 import reducers from './reducers'
 import middleware from './middleware.js'
